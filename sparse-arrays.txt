@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int n= sc.nextInt();
+        String[] str = new String[n];
+        for(int i=0;i<n;i++) {
+            str[i]= sc.next();
+        }
+        //for(int h=0;h<n;h++)
+        //System.out.print(str[h]);
+        int q= sc.nextInt();
+        String[] qry = new String[q];
+        for(int j=0;j<q;j++) {
+            qry[j]=sc.next();
+        }
+        int count =0;
+        for(int k=0;k<q;k++) {
+            for(int p=0;p<n;p++) {
+                if(qry[k].equals(str[p]))
+                    count++;
+            }
+            System.out.println(count);
+            count=0;
+        }
+        
+    }
+}

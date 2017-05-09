@@ -1,0 +1,59 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		String start = "hit";
+		String end = "cog";
+		Set<String> st = new Set<String>();
+		st.add("hot","dot","dog","lot","log");
+        System.out.println(ladder(start,end,st));
+	}
+	
+	static int ladder(String start, String end, Set<String> wordDict) {
+	    LinkedList<WordNode> queue = new LinkedList<WordNode>();
+        queue.add(new WordNode(start,1));
+        wordDict.add(end);
+        
+        while(!queue.isEmpty()) {
+            WordNode top = queue.remove();
+            String word = top.word;
+            
+            if(word.equals(end))
+                return top.steps;
+                
+            char[] arr = word.toCharArray();
+            for(int i=0;i<c.length;i++) {
+                for(char c='a';c<='z';c++) {
+                    char temp =arr[i];
+                    if(arr[i]!=c)
+                        a[i]=c;
+                    String newWord = new String(arr);
+                    if(wordDict.contains(newWord))
+                        queue.add(new WordNode(newWord,top.steps+1));
+                        wordDict.remove(newWord);
+                        
+                }
+                arr[i]=temp;
+            }
+        }
+        return 0;
+	}
+
+}
+
+class WordNode {
+    String word;
+    int steps;
+    public WordNode(String word, int steps) {
+        this.word=word;
+        this.steps=steps;
+    }
+}

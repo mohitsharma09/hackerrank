@@ -1,0 +1,49 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+//Convert String to Integer
+class Codechef
+{
+
+public static void main(String[] args) {
+    String str = " ";
+    char flag = '+';
+    if(str == null && str.length()==0)
+    System.out.print("Not a valid String");
+    int i =0;
+    if(str.charAt(0)=='-') {
+        flag ='-';
+        i++;
+    } else if(str.charAt(0)=='+') {
+        flag = '+';
+        i++;
+    }
+    
+    if(str.trim()==" ")
+        System.out.print("Not a number but only spaces");
+    double result=0;
+    
+    while(i<str.length() && str.charAt(i)>='0'&& str.charAt(i)<='9') {
+        result = result*10 +(str.charAt(i)-'0');
+        i++;
+    }
+    
+    if(flag=='-')
+        result = -(result);
+    
+    if(result>Integer.MAX_VALUE)
+        result = Integer.MAX_VALUE;
+    if(result<Integer.MIN_VALUE)
+        result= Integer.MIN_VALUE;
+    
+    System.out.print(result);
+}
+
+	
+	
+}
+

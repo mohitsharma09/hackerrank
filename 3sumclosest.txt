@@ -1,0 +1,46 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+//Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
+//For example, given array S = {-1 2 1 -4}, and target = 1. 
+//The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+	    int[] numbers={-1, 2, 1, -4};
+	    int target = 1;
+	    int min = Integer.MAX_VALUE;
+	    int result =0;
+	    Arrays.sort(numbers);
+	    for(int i=0;i<numbers.length;i++) {
+	        int j =i+1;
+	        int k =numbers.length-1;
+	        while(j<k) {
+	            int sum =numbers[i]+numbers[j]+numbers[k];
+                int diff = Math.abs(target-sum);
+                if(diff==0)
+                    System.out.print(sum);
+                if(diff <min) {
+                    min=diff;
+                    result=sum;
+                }
+                if(sum<=target){
+                    j++;
+                } else {
+                    k--;
+                }
+	            }
+	            
+	        }
+	        System.out.print(result);
+	    }
+	
+	
+}
+

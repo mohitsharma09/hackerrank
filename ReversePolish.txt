@@ -1,0 +1,49 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		String[] tokens = new String[] { "2", "1", "+", "3", "*" };
+		System.out.print(eval(tokens));
+
+	}
+	
+	static int eval(String[] tokens) {
+	    		String operators ="*+-/";
+	    		Stack<String> st = new Stack<String>();
+	    		int returnValue =0;
+
+	    for(int i=0;i<tokens.length;i++) {
+	        if(!operators.contains(tokens[i])) {
+	            st.push(tokens[i]);
+	        } else {
+	            int a = Integer.valueOf(st.pop());
+	            int b = Integer.valueOf(st.pop());
+	            
+	            switch(operators) {
+	                case "*":
+	                    st.push(String.valueOf(a*b));
+	                    break;
+	                case "+":
+	                    st.push(String.valueOf(a+b));
+	                    break;
+	                case "-":
+	                    st.push(String.valueOf(a-b));
+	                    break;
+	                case "/":
+	                    st.push(String.valueOf(a/b));
+	                    break;
+	            }
+	        }
+	    }
+	    returnValue= Integer.valueOf(st.pop());
+	    return returnValue;
+	}
+}
